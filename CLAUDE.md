@@ -54,15 +54,15 @@ def my_tool(
 ```
 
 Tool docstrings must follow this four-part structure in order:
-1. One-line summary
-2. Detailed explanation of functionality
-3. When to use (and when **not** to use) the tool
-4. Usage examples with expected input/output
+1. **One-line summary** — appears as the tool's short description
+2. **Detailed explanation** — what the tool does and how it works
+3. **When to use (and when NOT to use)** — helps the AI decide whether to invoke it
+4. **Usage examples** — concrete input/output pairs
 
-The docstring becomes the tool description visible to the AI assistant, so specificity here directly affects how reliably the tool gets invoked.
+The docstring is what the AI assistant sees as the tool description, so specificity and the "when not to use" guidance directly affect how reliably the tool gets invoked correctly.
 
 ### Key modules
 
 - `tools/math.py` — example arithmetic tool (`add`)
-- `tools/document.py` — `binary_document_to_markdown(binary_data, file_type)` converts `.docx`/`.pdf` bytes to markdown via `markitdown`; accepts a file extension string (e.g. `"docx"`, `"pdf"`)
+- `tools/document.py` — `binary_document_to_markdown(binary_data: bytes, file_type: str) -> str` converts `.docx`/`.pdf` bytes to markdown via `markitdown`; accepts a file extension string (e.g. `"docx"`, `"pdf"`)
 - `tests/fixtures/` — `.docx` and `.pdf` files used by the document conversion tests
